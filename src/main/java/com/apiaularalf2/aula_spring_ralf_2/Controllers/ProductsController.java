@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class ProductsController {
-    @GetMapping("/")
+    @GetMapping("/person")
     public String messenger(){
         return "hello";
     }
