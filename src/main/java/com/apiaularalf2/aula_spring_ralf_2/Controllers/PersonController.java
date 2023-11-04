@@ -26,23 +26,18 @@ public class PersonController {
         return actionService.listAllPersons();
     }
 
-    //Rota para selecionar uma pessoa pelo seu código cadastrado
+    //Rota para selecionar uma pessoa pelo seu id
     @GetMapping("/persons/{idFromUrl}")
     public ResponseEntity<?> listPersonsById(@PathVariable Long idFromUrl){
         return actionService.selectPersonById(idFromUrl);
 
     }
 
-
-/*
-
-
-
-   @DeleteMapping("/persons/{idFromUrl}")
+    @DeleteMapping("/persons/{idFromUrl}")
     public void deletPersonById(@PathVariable Long idFromUrl) {
 
        action.deleteById(idFromUrl);
    }
 
- */
+
 }
