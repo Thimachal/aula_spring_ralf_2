@@ -48,7 +48,16 @@ public class PersonService {
     }
 
     //Metodo para editar dados
-    public ResponseEntity<?>
+    public ResponseEntity<?> editPerson(Person objFromController){
+        if (actionRepository.countById(objFromController.getId())==0){
+            messenger.setMessenger("O código informado não existe");
+            return new ResponseEntity<>(messenger,HttpStatus.NOT_FOUND);
+        }else if (objFromController.getName().equals("")){
+            messenger.setMessenger("É necessário informar um nome");
+            return new ResponseEntity<>(messenger,HttpStatus.NOT_FOUND);
+        }
+            return new ResponseEntity<>(actionRepository,HttpStatus.OK);
+    }
 
 
 }
