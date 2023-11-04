@@ -13,9 +13,10 @@ public class PersonService {
     private Messenger messenger;
 
     @Autowired
-    private PersonRepository actionService;
+    private PersonRepository actionRepository;
 
-    public ResponseEntity<?> register(Person personObj){
+    //Metodo cadastro de pessoas
+    public ResponseEntity<?> registerPersons(Person personObj){
         if(personObj.getName().equals("")){
             messenger.setMessenger("O nome precisa ser preenchido");
             return new ResponseEntity<>(messenger, HttpStatus.BAD_REQUEST);
@@ -23,7 +24,25 @@ public class PersonService {
             messenger.setMessenger("A idade precisa ser corrigida");
             return new ResponseEntity<>(messenger,HttpStatus.BAD_REQUEST);
         }else
-            return new ResponseEntity<>(actionService.save(personObj), HttpStatus.CREATED);
+            return new ResponseEntity<>(actionRepository.save(personObj), HttpStatus.CREATED);
     }
+
+    //Metodo para listas pessoas
+    public ResponseEntity<?> listAllPersons(){
+        return new ResponseEntity<>(actionRepository.findAll(),HttpStatus.OK);
+    }
+
+
+    //Metodo para selecionar/listar uma pessoa pelo seu código cadastrado
+    public ResponseEntity<?> selectPersonById(Long idFromController){
+       if(actionRepository.countById(idFromController) == 0){
+           messenger.setMessenger("Não foi encontrados registros com este código");
+           return new ResponseEntity<>(messenger, HttpStatus.BAD_REQUEST);
+       }else
+        return new ResponseEntity<>(actionRepository.findById(idFromController), HttpStatus.OK);
+
+    }
+
+
 
 }
