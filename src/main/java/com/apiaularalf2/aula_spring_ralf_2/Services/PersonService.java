@@ -33,7 +33,7 @@ public class PersonService {
     }
 
 
-    //Metodo para selecionar/listar uma pessoa pelo seu código cadastrado
+    //Metodo para selecionar/listar uma pessoa pelo seu id
     public ResponseEntity<?> selectPersonById(Long idFromController){
        if(actionRepository.countById(idFromController) == 0){
            messenger.setMessenger("Não foi encontrados registros com este código");
@@ -43,6 +43,12 @@ public class PersonService {
 
     }
 
+    public void deletePersonById(Long idFromController){
+        actionRepository.deleteById(idFromController), HttpStatus.OK;
+    }
+
+    //Metodo para editar dados
+    public ResponseEntity<?>
 
 
 }
