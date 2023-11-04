@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
+import java.util.Optional;
+
 @org.springframework.stereotype.Service
 public class PersonService {
     @Autowired
@@ -37,26 +39,45 @@ public class PersonService {
     public ResponseEntity<?> selectPersonById(Long idFromController){
        if(actionRepository.countById(idFromController) == 0){
            messenger.setMessenger("Não foi encontrados registros com este código");
-           return new ResponseEntity<>(messenger, HttpStatus.BAD_REQUEST);
+           return new ResponseEntity<>(messenger, HttpStatus.NOT_FOUND);
        }else
         return new ResponseEntity<>(actionRepository.findById(idFromController), HttpStatus.OK);
 
     }
 
-    public void deletePersonById(Long idFromController){
-        actionRepository.deleteById(idFromController), HttpStatus.OK;
+    //Metodo para deletar uma pessoa pelo Id
+    public ResponseEntity<?> deletePersonById(Long idFromController) {
+        if (actionRepository.countById(idFromController) == 0) {
+            messenger.setMessenger("Não foi encontrados registros com este código");
+            return new ResponseEntity<>(messenger, HttpStatus.NOT_FOUND);
+        } else {
+
+            actionRepository.deleteById(idFromController);
+            messenger.setMessenger("removido com sucesso");
+            return new ResponseEntity<>(messenger, HttpStatus.OK);
+        }
     }
 
-    //Metodo para editar dados
+    //Metodo para editar dados pegando os dados pelo corpo da requisição
     public ResponseEntity<?> editPerson(Person objFromController){
         if (actionRepository.countById(objFromController.getId())==0){
             messenger.setMessenger("O código informado não existe");
             return new ResponseEntity<>(messenger,HttpStatus.NOT_FOUND);
+
         }else if (objFromController.getName().equals("")){
             messenger.setMessenger("É necessário informar um nome");
             return new ResponseEntity<>(messenger,HttpStatus.NOT_FOUND);
-        }
-            return new ResponseEntity<>(actionRepository,HttpStatus.OK);
+
+        } else if (objFromController.getGender().equals("")) {
+            messenger.setMessenger("É necessário informar o gênero");
+            return new ResponseEntity<>(messenger,HttpStatus.NOT_FOUND);
+
+        }else if (objFromController.getAge()< 0) {
+            messenger.setMessenger("É necessário informar idade válida");
+            return new ResponseEntity<>(messenger, HttpStatus.NOT_FOUND);
+
+        }else
+        return new ResponseEntity<>(actionRepository.save(objFromController),HttpStatus.OK);
     }
 
 
