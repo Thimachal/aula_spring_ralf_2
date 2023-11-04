@@ -1,7 +1,7 @@
 package com.apiaularalf2.aula_spring_ralf_2.Controllers;
 
 import com.apiaularalf2.aula_spring_ralf_2.Models.Person;
-import com.apiaularalf2.aula_spring_ralf_2.Repositories.PersonRepository;
+import com.apiaularalf2.aula_spring_ralf_2.Services.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,13 +14,25 @@ import java.util.Optional;
 public class PersonController {
 
     @Autowired
-    private PersonRepository action;
+    private PersonService actionServ;
 
     @PostMapping("/personsregister")
-    public Person register(@RequestBody Person personFromFront){
+    public ResponseEntity<?> register(@RequestBody Person personFromFront){
 
-        return action.save(personFromFront);
+        return actionServ.register(personFromFront);
     }
+
+
+
+    @GetMapping("persons/status")
+    public ResponseEntity<?> status(){
+        return new ResponseEntity<>(HttpStatus.CREATED);
+    }
+
+
+
+/*
+    //Rotas sem Response entity
     @GetMapping("/persons")
     public List<Person> listAllPersons(){
         return action.findAll();
@@ -38,17 +50,5 @@ public class PersonController {
        action.deleteById(idFromUrl);
    }
 
-
-
-   //Rotas com Response entity
-
-    @GetMapping("persons/status")
-    public ResponseEntity<?> status(){
-        return new ResponseEntity<>(HttpStatus.CREATED);
-    }
-
-
-
-
-
+ */
 }
