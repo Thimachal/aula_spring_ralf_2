@@ -10,4 +10,6 @@ public interface PersonRepository extends CrudRepository<Person, Long> {
 
     @Override
     Optional<Person> findById(Long aLong);
+
+    Integer countById(Long id);
 }
