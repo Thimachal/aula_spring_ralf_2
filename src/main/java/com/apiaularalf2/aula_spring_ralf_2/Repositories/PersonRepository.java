@@ -9,9 +9,9 @@ public interface PersonRepository extends CrudRepository<Person, Long> {
     List<Person> findAll();
 
     @Override
-    Optional<Person> findById(Long id);
+    Optional<Person> findById(Long idFromService);
 
-    Integer countById(Long id);
+    Integer countById(Long idFromService);
 
-    void deleteById(Long id);
+    void deleteById(Long idFromService);
 }
