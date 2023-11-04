@@ -13,19 +13,27 @@ public class PersonController {
 
     @Autowired
     private PersonRepository action;
-    @GetMapping("/persons")
-    public List<Person> listAllPersons(){
-        return action.findAll();
-    }
-
-    @GetMapping("/persons/{idFromUrl}")
-    public Optional<Person> listById(@PathVariable Long idFromUrl){
-        return action.findById(idFromUrl);
-    }
 
     @PostMapping("/personsregister")
     public Person register(@RequestBody Person personFromFront){
 
         return action.save(personFromFront);
     }
+    @GetMapping("/persons")
+    public List<Person> listAllPersons(){
+        return action.findAll();
+    }
+
+    @GetMapping("/persons/{idFromUrl}")
+    public Optional<Person> listPersonsById(@PathVariable Long idFromUrl){
+        return action.findById(idFromUrl);
+
+    }
+
+   @DeleteMapping("/persons/{idFromUrl}")
+    public void deletPersonById(@PathVariable Long idFromUrl) {
+
+       action.deleteById(idFromUrl);
+   }
+
 }
