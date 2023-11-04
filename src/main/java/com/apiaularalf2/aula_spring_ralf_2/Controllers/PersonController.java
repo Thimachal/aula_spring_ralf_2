@@ -33,13 +33,17 @@ public class PersonController {
 
     }
 
+    //Rota para deletar uma pessoa pelo seu id
     @DeleteMapping("/persons/{idFromUrl}")
-    public void delete(@PathVariable Long idFromUrl) {
+    public ResponseEntity<?> delete(@PathVariable Long idFromUrl) {
 
-       actionService.deletePersonById(idFromUrl);
+       return actionService.deletePersonById(idFromUrl);
    }
-
-   @
+    //Rota para editar dados de uma pessoa pelo corpo da requisição
+   @PutMapping("persons/")
+    public ResponseEntity<?> update(@RequestBody Person objFromBody ){
+        return actionService.editPerson(objFromBody);
+   }
 
 
 }
