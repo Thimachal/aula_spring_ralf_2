@@ -12,5 +12,7 @@ public class ClientController {
     @Autowired
     private ClientService actionService;
     @GetMapping("/client")
-    public ResponseEntity<?>
+    public ResponseEntity<?> list(){
+        return actionService.listAllClients();
+    }
 }
