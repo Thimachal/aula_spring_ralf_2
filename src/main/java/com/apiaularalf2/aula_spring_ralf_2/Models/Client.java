@@ -1,5 +1,7 @@
 package com.apiaularalf2.aula_spring_ralf_2.Models;
 
+import com.apiaularalf2.aula_spring_ralf_2.DTOs.ClientDTO;
+import com.apiaularalf2.aula_spring_ralf_2.Services.ClientService;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
