@@ -19,9 +19,6 @@ public class ClientController {
     public ResponseEntity<?> register(@Valid @RequestBody Client clientFromFront){
         return actionService.registerClients(clientFromFront);
     }
-
-
-
     @GetMapping("/clients")
     public ResponseEntity<?> list(){
         return actionService.listAllClients();
