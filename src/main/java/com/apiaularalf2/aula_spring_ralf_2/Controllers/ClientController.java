@@ -1,5 +1,6 @@
 package com.apiaularalf2.aula_spring_ralf_2.Controllers;
 
+import com.apiaularalf2.aula_spring_ralf_2.DTOs.ClientDTO;
 import com.apiaularalf2.aula_spring_ralf_2.Models.Client;
 import com.apiaularalf2.aula_spring_ralf_2.Services.ClientService;
 import jakarta.validation.Valid;
@@ -16,7 +17,7 @@ public class ClientController {
     private ClientService actionService;
 
     @PostMapping("/clientsregister")
-    public ResponseEntity<?> register(@Valid @RequestBody Client clientFromFront){
+    public ResponseEntity<?> register(@Valid @RequestBody ClientDTO clientFromFront){
         return actionService.registerClients(clientFromFront);
     }
     @GetMapping("/clients")
