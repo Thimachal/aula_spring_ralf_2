@@ -1,7 +1,8 @@
 package com.apiaularalf2.aula_spring_ralf_2.Services;
 
-import com.apiaularalf2.aula_spring_ralf_2.Models.Client;
+import com.apiaularalf2.aula_spring_ralf_2.DTOs.ClientDTO;
 import com.apiaularalf2.aula_spring_ralf_2.Repositories.ClientRepository;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +18,7 @@ public class ClientService {
     }
 
 
-    public ResponseEntity<?> registerClients(Client clientObj) {
+    public ResponseEntity<?> registerClients(@Valid ClientDTO clientObj) {
         return new ResponseEntity<>(actionRepository.save(clientObj), HttpStatus.OK);
     }
 }
