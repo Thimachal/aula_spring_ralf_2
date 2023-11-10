@@ -1,7 +1,7 @@
 package com.apiaularalf2.aula_spring_ralf_2.Controllers;
 
-import com.apiaularalf2.aula_spring_ralf_2.DTOs.ClientDTO;
 import com.apiaularalf2.aula_spring_ralf_2.Models.Client;
+import com.apiaularalf2.aula_spring_ralf_2.DTOs.ClientDTO;
 import com.apiaularalf2.aula_spring_ralf_2.Services.ClientService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +18,8 @@ public class ClientController {
 
     @PostMapping("/clientsregister")
     public ResponseEntity<?> register(@Valid @RequestBody ClientDTO clientFromFront){
-        return actionService.registerClients(clientFromFront);
+        var client = actionService.builderDTOModel(clientFromFront);
+        return actionService.registerClients(client);
     }
     @GetMapping("/clients")
     public ResponseEntity<?> list(){
