@@ -3,7 +3,7 @@ package com.apiaularalf2.aula_spring_ralf_2.DTOs;
 import com.apiaularalf2.aula_spring_ralf_2.Models.Client;
 import org.springframework.stereotype.Component;
 
-
+@Component
 public class ClientDTO {
     private Long idClientDTO;
     private String nameClientDTO;
