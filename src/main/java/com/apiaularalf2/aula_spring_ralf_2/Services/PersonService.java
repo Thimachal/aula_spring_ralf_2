@@ -34,7 +34,6 @@ public class PersonService {
         return new ResponseEntity<>(actionRepository.findAll(),HttpStatus.OK);
     }
 
-
     //Metodo para selecionar/listar uma pessoa pelo seu id
     public ResponseEntity<?> selectPersonById(Long idFromController){
        if(actionRepository.countById(idFromController) == 0){
