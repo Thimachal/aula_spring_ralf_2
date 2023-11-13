@@ -1,11 +1,15 @@
 package com.apiaularalf2.aula_spring_ralf_2.DTOs;
 
 import com.apiaularalf2.aula_spring_ralf_2.Models.Client;
+import jakarta.validation.constraints.NotBlank;
 import org.springframework.stereotype.Component;
 
 @Component
 public class ClientDTO {
     private Long idClientDTO;
+
+
+    @NotBlank
     private String nameClientDTO;
     private String emailClientDTO;
 
