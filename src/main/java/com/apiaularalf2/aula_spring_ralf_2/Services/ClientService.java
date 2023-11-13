@@ -19,10 +19,12 @@ public class ClientService {
     }
 
 
-    public ResponseEntity<?> registerClients(@Valid ClientDTO clientObj) {
+    public ResponseEntity<?> registerClients(@Valid Client clientObj) {
         return new ResponseEntity<>(actionRepository.save(clientObj), HttpStatus.OK);
     }
 
+
+    //metodo novo da aula 17 TUP
     public static Client builderDTOModel(ClientDTO clientFromFront) {
         var client = new Client();
 
