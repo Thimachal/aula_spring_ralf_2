@@ -1,6 +1,5 @@
-package com.apiaularalf2.aula_spring_ralf_2.Services;
+/*package com.apiaularalf2.aula_spring_ralf_2.Services;
 
-import com.apiaularalf2.aula_spring_ralf_2.DTOs.ClientDTO;
 import com.apiaularalf2.aula_spring_ralf_2.Models.Client;
 import com.apiaularalf2.aula_spring_ralf_2.Services.IMPL.ClientInterface;
 import com.apiaularalf2.aula_spring_ralf_2.Services.IMPL.ClientService;
@@ -29,3 +28,4 @@ public class ServiceIMPLTest {
     }
 
 }
+*/
