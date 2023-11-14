@@ -1,4 +1,4 @@
-package com.apiaularalf2.aula_spring_ralf_2.Services;
+package com.apiaularalf2.aula_spring_ralf_2.Services.IMPL;
 
 import com.apiaularalf2.aula_spring_ralf_2.Models.Messenger;
 import com.apiaularalf2.aula_spring_ralf_2.Models.Person;
