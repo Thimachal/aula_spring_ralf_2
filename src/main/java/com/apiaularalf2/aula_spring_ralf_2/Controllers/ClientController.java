@@ -26,11 +26,9 @@ public class ClientController {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
-    /*
+
     @GetMapping("/clients")
     public ResponseEntity<?> list(){
         return actionService.listAllClients();
     }
-
-     */
 }
