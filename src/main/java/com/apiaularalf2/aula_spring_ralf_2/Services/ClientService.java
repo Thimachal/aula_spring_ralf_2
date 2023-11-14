@@ -29,7 +29,7 @@ public class ClientService {
 */
 
     //metodo novo da aula 17 TUP
-    public ResponseEntity<?> builderDTOModel(ClientDTO clientFromFront) {
+    public ResponseEntity<?> registerClientDTO(ClientDTO clientFromFront) {
         Client client = new Client();
 
         //opcao para transformar todos os itens de client para DTO
