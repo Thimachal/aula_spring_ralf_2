@@ -18,7 +18,7 @@ public class ClientController {
 
     @PostMapping("/clientsregister")
     public ResponseEntity<?> register(@Valid @RequestBody ClientDTO clientFromFront){
-       ResponseEntity<?> clientFromService = actionService.builderDTOModel(clientFromFront);
+       ResponseEntity<?> clientFromService = actionService.registerClientDTO(clientFromFront);
         if (clientFromService != null) {
             return new ResponseEntity<>(clientFromService.getBody(),HttpStatus.CREATED);
         }else {
