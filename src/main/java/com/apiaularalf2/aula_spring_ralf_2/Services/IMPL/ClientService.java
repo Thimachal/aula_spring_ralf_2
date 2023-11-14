@@ -1,4 +1,4 @@
-package com.apiaularalf2.aula_spring_ralf_2.Services;
+package com.apiaularalf2.aula_spring_ralf_2.Services.IMPL;
 
 import com.apiaularalf2.aula_spring_ralf_2.DTOs.ClientDTO;
 import com.apiaularalf2.aula_spring_ralf_2.Models.Client;
@@ -9,7 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ClientService {
+public class ClientService implements ClientInterface {
     @Autowired
     private ClientRepository actionRepository;
 
