@@ -3,15 +3,10 @@ package com.apiaularalf2.aula_spring_ralf_2.Services;
 import com.apiaularalf2.aula_spring_ralf_2.DTOs.ClientDTO;
 import com.apiaularalf2.aula_spring_ralf_2.Models.Client;
 import com.apiaularalf2.aula_spring_ralf_2.Repositories.ClientRepository;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-
-import java.net.URI;
-import java.util.Optional;
 
 @Service
 public class ClientService {
