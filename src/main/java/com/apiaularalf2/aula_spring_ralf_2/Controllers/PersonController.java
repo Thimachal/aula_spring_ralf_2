@@ -1,7 +1,7 @@
 package com.apiaularalf2.aula_spring_ralf_2.Controllers;
 
 import com.apiaularalf2.aula_spring_ralf_2.Models.Person;
-import com.apiaularalf2.aula_spring_ralf_2.Services.PersonService;
+import com.apiaularalf2.aula_spring_ralf_2.Services.IMPL.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
