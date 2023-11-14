@@ -7,8 +7,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class ClientDTO {
     private Long idClientDTO;
-
-
     @NotBlank
     private String nameClientDTO;
     private String emailClientDTO;
