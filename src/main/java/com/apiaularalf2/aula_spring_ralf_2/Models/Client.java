@@ -15,6 +15,16 @@ public class Client {
     @Email(message = "Informe um email válido")
     private String emailClient;
 
+    public Client(){
+
+    }
+
+    public Client(Long idClient, String nameClient, String emailClient) {
+        this.idClient = idClient;
+        this.nameClient = nameClient;
+        this.emailClient = emailClient;
+    }
+
     public Long getIdClient() {
         return idClient;
     }
