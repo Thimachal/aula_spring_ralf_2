@@ -17,11 +17,6 @@ public class ClientService implements ClientInterface {
         return new ResponseEntity<>(actionRepository.findAll(), HttpStatus.OK);
     }
 
-/*metodo para salvar
-    public ResponseEntity<?> registerClients(@Valid Client clientObj) {
-        return new ResponseEntity<>(actionRepository.save(clientObj), HttpStatus.OK);
-    }
-*/
 
     //metodo novo da aula 17 TUP
     public ResponseEntity<?> registerClientDTO(ClientDTO clientFromFront) {
