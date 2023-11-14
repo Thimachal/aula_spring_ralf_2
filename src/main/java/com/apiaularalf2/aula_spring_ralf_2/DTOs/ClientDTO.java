@@ -15,6 +15,13 @@ public class ClientDTO {
     public ClientDTO(){
 
     }
+
+    public ClientDTO(Long idClientDTO, String nameClientDTO, String emailClientDTO) {
+        this.idClientDTO = idClientDTO;
+        this.nameClientDTO = nameClientDTO;
+        this.emailClientDTO = emailClientDTO;
+    }
+
     //construtor principal do DTO, pegando as informações da classe principalClient
     public ClientDTO(Client client) {
         //todos os getters são pegando as propriedades da classe principal e adequando ao DTO
