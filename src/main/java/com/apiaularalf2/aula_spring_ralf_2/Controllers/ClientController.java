@@ -24,7 +24,6 @@ public class ClientController {
         }else {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
-
     }
     @GetMapping("/clients")
     public ResponseEntity<?> list(){
