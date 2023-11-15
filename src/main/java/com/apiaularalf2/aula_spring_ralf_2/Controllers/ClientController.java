@@ -19,16 +19,19 @@ public class ClientController {
 
     @PostMapping("/clientsregister")
     public ResponseEntity<?> register(@Valid @RequestBody ClientDTO clientFromFront){
-       ResponseEntity<?> clientFromService = actionService.registerClientDTO(clientFromFront);
-        if (clientFromService != null) {
+        try{
+            ResponseEntity<?> clientFromService = actionService.registerClientDTO(clientFromFront);
             return new ResponseEntity<>(clientFromService.getBody(),HttpStatus.CREATED);
-        }else {
+        }catch (RuntimeException e){
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
-
     @GetMapping("/clients")
     public ResponseEntity<?> list(){
-        return actionService.listAllClients();
+        try {
+            return actionService.listAllClients();
+        }catch (RuntimeException e){
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
     }
 }
