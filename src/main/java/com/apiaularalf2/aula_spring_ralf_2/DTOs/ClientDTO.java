@@ -7,8 +7,9 @@ import org.springframework.stereotype.Component;
 @Component
 public class ClientDTO {
     private Long idClientDTO;
-    @NotBlank
+
     private String nameClientDTO;
+
     private String emailClientDTO;
 
     //construtor vazia
@@ -21,6 +22,8 @@ public class ClientDTO {
         this.nameClientDTO = nameClientDTO;
         this.emailClientDTO = emailClientDTO;
     }
+
+
 
     //construtor principal do DTO, pegando as informações da classe principalClient
     public ClientDTO(Client client) {
