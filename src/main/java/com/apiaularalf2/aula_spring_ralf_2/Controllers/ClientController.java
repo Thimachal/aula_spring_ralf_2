@@ -2,7 +2,6 @@ package com.apiaularalf2.aula_spring_ralf_2.Controllers;
 
 import com.apiaularalf2.aula_spring_ralf_2.DTOs.ClientDTO;
 import com.apiaularalf2.aula_spring_ralf_2.Services.IMPL.ClientInterface;
-import com.apiaularalf2.aula_spring_ralf_2.Services.IMPL.ClientService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -29,7 +28,7 @@ public class ClientController {
     @GetMapping("/clients")
     public ResponseEntity<?> list(){
         try {
-            return actionService.listAllClients();
+            return new ResponseEntity<>(actionService.listAllClients().getBody(),HttpStatus.OK);
         }catch (RuntimeException e){
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
